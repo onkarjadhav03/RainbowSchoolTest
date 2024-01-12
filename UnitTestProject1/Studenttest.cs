@@ -17,23 +17,23 @@ namespace UnitTestProject1
             public void TestTeacherFullName()
             {
                 // Arrange
-                var teacher = new Teacher { Id = 1, Name = "John Doe" };
+                var teacher = new Teacher { Id = 1, Name = "Vishwas Kulkarni" };
 
                 // Act
                 var result = teacher.GetFullName();
 
                 // Assert
-                Assert.AreEqual("Teacher: John Doe", result);
+                Assert.AreEqual("Teacher: Vishwas Kulkarni", result);
             }
 
             [Test]
             public void TestStudentEnrollment()
             {
                 // Arrange
-                var student = new Student { Id = 1, Name = "Alice" };
+                var student = new Student { Id = 1, Name = "Aniket" };
 
                 // Act
-                var result = student.Enroll("Math");
+                var result = student.Enroll("Science");
 
                 // Assert
                 Assert.IsTrue(result);
@@ -44,9 +44,9 @@ namespace UnitTestProject1
             {
                 // Arrange
                 var mockStudent = new Mock<IStudent>();
-                mockStudent.Setup(s => s.GetGrade("Math")).Returns("A");
+                mockStudent.Setup(s => s.GetGrade("Science")).Returns("A");
 
-                var subject = new Subject("Math", mockStudent.Object);
+                var subject = new Subject("Science", mockStudent.Object);
 
                 // Act
                 var result = subject.GetGrade();
